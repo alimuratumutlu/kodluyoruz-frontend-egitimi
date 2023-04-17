@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px 0px 10px;
+  height: 90vh ;
+}
+
+
+.product-container {
+  display: flex;
+  padding:7px;
+  width: 100%;
+  justify-content: flex-start;
+}

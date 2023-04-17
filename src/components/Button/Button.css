@@ -1,0 +1,9 @@
+.button-container {
+    color: #fff;
+    background-color: #00b894;
+
+    padding:1   0px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+}

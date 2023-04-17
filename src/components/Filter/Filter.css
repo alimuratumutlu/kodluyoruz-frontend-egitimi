@@ -1,0 +1,11 @@
+
+.filter-container {
+    display: flex;
+    padding:7px;
+    background-color: #dfe6e9;
+    min-width: 200px;
+    border:1px solid #b2bec3;
+    border-radius: 6px;
+    justify-content: flex-start;
+  
+  }

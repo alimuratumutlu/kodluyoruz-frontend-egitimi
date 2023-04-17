@@ -1,0 +1,8 @@
+.baslik-container {
+    font-weight: 900;
+    background-color: yellow;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
+}
