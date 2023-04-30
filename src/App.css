@@ -7,12 +7,15 @@
   justify-content: space-between;
   padding: 20px 10px 0px 10px;
   height: 90vh ;
+  gap:10px
 }
 
 
 .product-container {
   display: flex;
-  padding:7px;
   width: 100%;
-  justify-content: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

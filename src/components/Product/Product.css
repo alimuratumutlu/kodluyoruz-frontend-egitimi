@@ -1,21 +1,23 @@
 .product-card-container {
     position: relative;
+    flex-wrap: wrap;
     border:1px solid #b2bec3;
     border-radius: 7px;
     width:200px;
-    height: 300px;
+    min-height: 300px;
     padding: 10px;
 }
 
 .thumbnail {
     width:200px;
+    height: 200px;
     border-radius: 7px;
 }
 
 .product-title {
     font-size: 18px;
     font-weight: 800;
-    margin:10px;
+    margin: 10px 0px ;
     text-align: left;
 }
 
@@ -28,4 +30,14 @@
     padding:2px 3px 2px 3px;
     margin-left: 10px;
     margin-top: 10px;
+}
+
+.info-section {
+    min-height: 90%;
+}
+
+.product-description {
+    font-size: 13px;
+    text-align: justify;
+    margin: 10px 0px;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import "./Button.css"
 
 // React ile HTML etiketleri oluştururken dikkat etmemz gereken farklar:
@@ -12,6 +12,7 @@ import "./Button.css"
 
 
 function Button({butonMetni}) {
+
 
     return (
         <button className="button-container" style={{ borderRadius:10 }} >{butonMetni}</button>
