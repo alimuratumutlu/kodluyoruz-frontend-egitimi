@@ -8,11 +8,11 @@ export default function Product({urunAdi, aciklama, fiyat, kategori,urunResmi, h
     <div className='product-card-container'>
       <div className='info-section' >
         <span className='product-cateogry' >{kategori}</span>
-        <img src={urunResmi} className='thumbnail' />
+        <img alt={urunAdi} src={urunResmi} className='thumbnail' />
         <div className='product-title'>{urunAdi}</div>
         <div className='product-description' >{aciklama}</div>
       </div>
-      <Button onClick={() => handleAddToCart(urunAdi)} butonMetni={"Add To Cart"} />
+      <Button onClick={() => handleAddToCart({title: urunAdi})} butonMetni={"Add To Cart"} />
     </div>
   )
 }

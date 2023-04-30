@@ -3,7 +3,8 @@
 * Alışveriş sepetine ekleme +
 * Alışveriş sepetindeki öğe sayısını gösterme +
 * Alışveriş sepetine tıklandığında, eklenen öğeleri gösterme +
-* Listelenen öğeleri isimlerine göre filtreleme
+
+* Listelenen öğeleri isimlerine göre filtreleme + 
 * Listelenen öğeleri fiyatlarına göre filtreleme
 * Listelenen öğeleri kategorilerine göre filtreleme
 

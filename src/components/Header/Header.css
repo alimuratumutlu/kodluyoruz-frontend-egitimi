@@ -42,9 +42,18 @@
     border: 2px solid #e17055;
     border-radius: 7px;
     z-index: 10;
+    text-align: left;
 }
 
 .cart-item {
     margin: 5px 0px;
+    padding: 5px 3px;
     border-bottom: 1px solid #888888;
+}
+
+.item-count {
+    margin: 0px 5px;
+    border-radius: 5px;
+    background-color: #ffb4a2;
+    padding: 2px 4px;
 }
