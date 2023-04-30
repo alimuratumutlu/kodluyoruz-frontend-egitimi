@@ -27,7 +27,7 @@ export default function Header({ cartItems }) {
         showItemList && (<div className='cart-items-container' >
           {
             cartItems?.map(item => (
-              <div className='cart-item'>{item.name} <span className='item-count'>{item.count}</span></div>
+              <div className='cart-item'>{item.title} <span className='item-count'>{item.count}</span></div>
             ))
           }
         </div>)
