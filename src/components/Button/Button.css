@@ -7,6 +7,7 @@
     cursor: pointer;
     width: 100%;
     font-size: 13px;
+    margin-top: 5px;
 }
 
 .button-container:hover {

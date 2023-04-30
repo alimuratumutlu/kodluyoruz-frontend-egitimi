@@ -9,13 +9,14 @@
   padding: 70px 10px 0px 10px;
   height: 90vh ;
   gap:10px
+  
 }
 
 
 .product-container {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
   flex-direction: row;
   flex-wrap: wrap;
