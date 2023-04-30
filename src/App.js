@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 // 3 temel: JSX - JavaScript içerisinde HTML , Props - Bileşenlere gönderilen bilgi , State
 
 function App() {
+  const [cartItems, setCartItems] = useState([])
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -16,17 +17,21 @@ function App() {
       .then((json) => setData(json.products));
   }, []);
 
+  function handleAddToCart(item) {
+    setCartItems(cartItems => [...cartItems, item])
+    console.log("handleAddToCart çalıştı", cartItems)
+  }
 
   return (
     <div className="App">
-        <Header />
+        <Header cartItems={cartItems} />
         <div className='main'>
           <Filter />
           <div className='product-container'>
           {
               data.map(element => {
                 return (
-                  <Product key={element.id} urunAdi={element.title} aciklama={element.description} fiyat={element.price} kategori={element.category} urunResmi={element.thumbnail} />
+                  <Product key={element.id} urunAdi={element.title} aciklama={element.description} fiyat={element.price} kategori={element.category} urunResmi={element.thumbnail} handleAddToCart={handleAddToCart} />
                 )
               })
           }  

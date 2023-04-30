@@ -3,9 +3,10 @@
 }
 
 .main {
+  padding-top: 120px;
   display: flex;
   justify-content: space-between;
-  padding: 20px 10px 0px 10px;
+  padding: 70px 10px 0px 10px;
   height: 90vh ;
   gap:10px
 }

@@ -1,9 +1,14 @@
 .button-container {
     color: #fff;
     background-color: #00b894;
-
-    padding:1   0px;
+    border: 1px solid #00b894;
+    border-radius: 5px;
+    padding:5px 0px;
     cursor: pointer;
     width: 100%;
-    font-size: 20px;
+    font-size: 13px;
+}
+
+.button-container:hover {
+    background-color: #009275;
 }
