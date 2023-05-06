@@ -1,7 +1,7 @@
 import './App.css';
-import Filter from './components/Filter/Filter';
-import Header from './components/Header/Header';
-import Product from './components/Product/Product';
+import Filter from './components/organisms/Filter/Filter';
+import Header from './components/organisms/Header/Header';
+import Product from './components/molecules/Product/Product';
 
 import { useCallback, useEffect, useState } from 'react';
 
@@ -15,6 +15,11 @@ function App() {
 
   const [minPrice, setMinPrice] = useState(0)
   const [maxPrice, setMaxPrice] = useState(0)
+
+  const [selectedCategories, setSelectedCategories] = useState([])
+
+  // Alternatif yöntem
+  // const [filterCategories, setFilterCategories] = useState([{name: "smartphones", selected: false}, {name: "laptops", selected: false}])
 
   const [filteredData, setFilteredData] = useState([])
 
@@ -31,6 +36,17 @@ function App() {
     } else {
       setCartItems(prevItems => [...prevItems, { ...item, count: 1 }])
     }
+  }
+
+  function handleCategoryFilter(category) {
+    const isCategoryExists = selectedCategories.includes(category)
+    if (isCategoryExists) {
+      setSelectedCategories(selectedCategories => selectedCategories.filter(c => c !== category))
+    } else {
+      setSelectedCategories(selectedCategories => [...selectedCategories, category])
+    }
+
+    console.log("handleCategoryFilter")
   }
 
   useEffect(() => {
@@ -58,15 +74,20 @@ function App() {
       dataToBeFiltered = dataToBeFiltered.filter(item => item.price <= maxPrice)
     }
 
+    if (selectedCategories.length > 0) {
+      // dataToBeFiltered = dataToBeFiltered.filter(item =>  selectedCategories.some(selectedCategory => selectedCategory === item.category))
+      dataToBeFiltered = dataToBeFiltered.filter(item => selectedCategories.includes(item.category))
+    }
+
     setFilteredData(dataToBeFiltered)
 
-  }, [data, keyword, minPrice, maxPrice])
+  }, [data, keyword, minPrice, maxPrice, selectedCategories])
 
   return (
     <div className="App">
       <Header cartItems={cartItems} />
       <div className='main'>
-        <Filter keyword={keyword} setKeyword={setKeyword} minPrice={minPrice} setMinPrice={setMinPrice} maxPrice={maxPrice} setMaxPrice={setMaxPrice} calculateResults={calculateResults} />
+        <Filter keyword={keyword} setKeyword={setKeyword} minPrice={minPrice} setMinPrice={setMinPrice} maxPrice={maxPrice} setMaxPrice={setMaxPrice} calculateResults={calculateResults} handleCategoryFilter={handleCategoryFilter} selectedCategories={selectedCategories} />
         <div className='product-container'>
           {
             filteredData?.map(element => {

@@ -1,33 +1,27 @@
 .product-card-container {
     position: relative;
     flex-wrap: wrap;
-    border:1px solid #b2bec3;
+    border: 1px solid #b2bec3;
     border-radius: 7px;
-    width:200px;
+    width: 200px;
     min-height: 300px;
     padding: 10px;
-}
-
-.thumbnail {
-    width:200px;
-    height: 200px;
-    border-radius: 7px;
 }
 
 .product-title {
     font-size: 18px;
     font-weight: 800;
-    margin: 10px 0px ;
+    margin: 10px 0px;
     text-align: left;
 }
 
 .product-cateogry {
-    position:absolute;
+    position: absolute;
     left: 20;
     color: #000;
     background-color: #e17055;
     border-radius: 4px;
-    padding:2px 3px 2px 3px;
+    padding: 2px 3px 2px 3px;
     margin-left: 10px;
     margin-top: 10px;
 }
