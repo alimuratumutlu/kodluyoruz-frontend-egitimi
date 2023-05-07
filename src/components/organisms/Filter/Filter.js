@@ -9,8 +9,7 @@ export default function Filter({ keyword, setKeyword, minPrice, setMinPrice, max
   const filterCategories = ["smartphones", "laptops"]
 
   const checkStatus = useCallback((item) => {
-    let result = false;
-    result = selectedCategories.includes(item)
+    return selectedCategories.includes(item)
   }, [selectedCategories])
 
   // Alternatif handleCategoryFilter

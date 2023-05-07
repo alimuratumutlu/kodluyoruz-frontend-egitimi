@@ -1,36 +1,29 @@
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
-import "./Header.css"
+import { useSelector } from 'react-redux'
 
-export default function Header({ cartItems }) {
+import "./Header.css"
+import CartList from '../../molecules/CartList/CartList';
+
+export default function Header() {
+  const cartItems = useSelector(state => state.cartList.cartItems)
+
   const [showItemList, setShowItemList] = useState(false)
 
   const handleToggleList = () => {
     setShowItemList(showItemList => !showItemList)
   }
 
-  const cartItemsCount = useMemo(() => {
-    let count = 0;
-    cartItems.map((item) => count = count + item.count)
-    return count;
-  }, [cartItems])
-
   return (
     <>
       <div className='header-container'>
         <span className='logo' >e-Shop</span>
         <span className='page-list'> Sayfalar </span>
-        <span onClick={handleToggleList} className='cart-block'> <AiOutlineShoppingCart size="18" /> {cartItemsCount} </span>
+        <span onClick={handleToggleList} className='cart-block'> <AiOutlineShoppingCart size="18" /> {cartItems.length} </span>
       </div>
       {
-        showItemList && (<div className='cart-items-container' >
-          {
-            cartItems?.map(item => (
-              <div className='cart-item'>{item.title} <span className='item-count'>{item.count}</span></div>
-            ))
-          }
-        </div>)
+        showItemList && (<CartList />)
       }
     </>
   )
