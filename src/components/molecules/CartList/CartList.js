@@ -1,18 +1,21 @@
 import React from 'react'
+import { Text, Paper } from '@mantine/core';
 
 import { useSelector } from 'react-redux'
+
+import "./CartList.css"
 
 export default function CartList() {
 
     const cartItems = useSelector(state => state.cartList.cartItems)
 
     return (
-        <div className='cart-items-container' >
+        <Paper shadow="sm" p="md" className='cart-items-container' >
             {
                 cartItems?.map(item => (
-                    <div className='cart-item'>{item.title} <span className='item-count'>{item.count}</span></div>
+                    <Text>{item.title} - {item.count}</Text>
                 ))
             }
-        </div>
+        </Paper>
     )
 }

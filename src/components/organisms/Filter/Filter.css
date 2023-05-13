@@ -1,19 +1,23 @@
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 5px 0px;
 }
 
 
 .filter-container {
-    display: flex;
-    padding:7px;
-    background-color: #dfe6e9;
-    min-width: 200px;
-    border:1px solid #b2bec3;
-    border-radius: 6px;
-    justify-content: flex-start;
-    flex-direction: column;
-    text-align: left;
-  }
-  .search-input {
-    height: 24px;
-  }
+  display: flex;
+  padding: 7px;
+  min-width: 200px;
+  border-radius: 6px;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: left;
+}
+
+.search-input {
+  height: 24px;
+}

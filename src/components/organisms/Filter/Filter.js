@@ -1,11 +1,21 @@
 import React, { useCallback } from 'react'
+import { Button, Card, TextInput, Input, MantineProvider } from '@mantine/core'
 
-import "./Filter.css"
-import Button from '../../atoms/Button/Button'
+import { useSelector, useDispatch } from 'react-redux'
+
 import FilterElement from '../../molecules/FilterElement/FilterElement'
 
-export default function Filter({ keyword, setKeyword, minPrice, setMinPrice, maxPrice, setMaxPrice, calculateResults, handleCategoryFilter, selectedCategories }) {
+import { updateKeyword, updateMinPrice, updateMaxPrice } from "./FilterSlice"
 
+import "./Filter.css"
+
+export default function Filter({ calculateResults, handleCategoryFilter, selectedCategories }) {
+
+  const dispatch = useDispatch()
+
+  const keyword = useSelector(state => state.filterList.keyword)
+  const minPrice = useSelector(state => state.filterList.minPrice)
+  const maxPrice = useSelector(state => state.filterList.maxPrice)
   const filterCategories = ["smartphones", "laptops"]
 
   const checkStatus = useCallback((item) => {
@@ -32,30 +42,39 @@ export default function Filter({ keyword, setKeyword, minPrice, setMinPrice, max
 
 
   return (
-    <div className='filter-container'>
+    <Card withBorder radius="md" shadow="sm" p="md" className='filter-container'>
 
-      <FilterElement filterTitle="Keyword Search" >
-        <input
-          className='search-input'
-          type="text"
-          id="keyword"
+      <FilterElement >
+        <TextInput
+          label="Keyword Search"
+          placeholder="Search Keyword"
+          description="Please enter a key to search in products"
+          onChange={(e) => dispatch(updateKeyword(e.target.value))}
           value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
         />
       </FilterElement>
 
-      <FilterElement filterTitle="Pricing">
-        <h5>Min Price</h5>
-        <input
+      <FilterElement>
+
+        <Input.Label>Minimum Price</Input.Label>
+        <Input.Description>Please enter a minimum price</Input.Description>
+        <Input
+          mt="xs"
+          placeholder="500"
           value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
+          onChange={(e) => dispatch(updateMinPrice(e.target.value))}
         />
 
-        <h6>Max Price</h6>
-        <input
+
+        <Input.Label mt="lg" >Maximum Price</Input.Label>
+        <Input.Description>Please enter a maximum price</Input.Description>
+        <Input
+          mt="xs"
+          placeholder="5000"
           value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
+          onChange={(e) => dispatch(updateMaxPrice(e.target.value))}
         />
+
       </FilterElement>
 
       <FilterElement filterTitle={"Categories"}>
@@ -74,8 +93,8 @@ export default function Filter({ keyword, setKeyword, minPrice, setMinPrice, max
 
 
       </FilterElement>
+      <Button variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 60 }} onClick={calculateResults}>Search Products</Button>
 
-      <Button butonMetni="Search Products" onClick={calculateResults} />
-    </div>
+    </Card>
   )
 }
